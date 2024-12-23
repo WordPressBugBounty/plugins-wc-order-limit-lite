@@ -20,7 +20,7 @@ if ( isset( $_GET['_wpnonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unsl
 ?>
 <div class="wrap wcol">
 	<h3><?php esc_html_e( 'Order Limit Lite for WooCommerce', 'wc-order-limit-lite' ); ?>
-		<a class="xs-pro-link" href="https://codecanyon.net/item/woocommerce-wc-vendors-order-limit/20688279" target="_blank">
+		<a class="xs-pro-link" href="https://woocommerce.com/products/order-limit/" target="_blank">
 			<div class="xs-button-main">
 				<?php submit_button( esc_html__( 'Pro Version' ), 'secondary', 'xs-button' ); ?>
 			</div>

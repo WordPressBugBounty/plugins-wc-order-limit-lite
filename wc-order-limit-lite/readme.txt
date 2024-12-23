@@ -1,11 +1,11 @@
 === Order Limit for WooCommerce ===
 Contributors: xfinitysoft
 Tags: limits,woocommerce,orders,category,products
-Donate link:  https://1.envato.market/LPdrmY
+Donate link:  https://woocommerce.com/products/order-limit/
 Requires at least: 4.5
-Tested up to: 6.6.1
+Tested up to: 6.7.1
 Requires PHP: 6.2
-Stable tag: 2.2.3
+Stable tag: 2.2.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Set Order limits i.e Minimum Order Limit for products, Minimum Order Limit for product categories, Minimum Order Limit for complete order.
@@ -13,7 +13,7 @@ Set Order limits i.e Minimum Order Limit for products, Minimum Order Limit for p
 Order Limit for WooCommerce lets you set minimum and maximum limits on order quantity and order value. The WooCommerce limit quantity plugin prevents customers from ordering too few or too many products, making it troublesome for the storeowner to fulfill.
 
 [Try the Demo](https://orderlimit.xfinitysoft.app/ "Demo") | [Documents](https://docs.xfinitysoft.app/plugins/woocommerce-wc-vendors-order-limit/
-"Documents") | [Premium Version](https://codecanyon.net/item/woocommerce-wc-vendors-order-limit/20688279 "Premium Version") | [Facebook Page](https://www.facebook.com/xfinitysoft)
+"Documents") | [Premium Version](https://woocommerce.com/products/order-limit/ "Premium Version") | [Facebook Page](https://www.facebook.com/xfinitysoft)
 
 [youtube hhttps://www.youtube.com/watch?v=f0waWoDAg0U]
 
@@ -70,7 +70,7 @@ With customizable error messages, you can notify customers about the order limit
 * Vendor has the ability to change Order Limit
 
 = Buy the Premium Version here:  =
-[Woocommerce Order Limit](https://1.envato.market/LPdrmY)
+[Woocommerce Order Limit](https://woocommerce.com/products/order-limit/)
 
 ###MAY BE YOU NEED
 
@@ -112,7 +112,7 @@ With customizable error messages, you can notify customers about the order limit
 ### Plugin Links
 
 &#9658; [Project Page](https://xfinitysoft.com/)
-&#9658; [Documentation](https://docs.xfinitysoft.app/plugins/woocommerce-wc-vendors-order-limit/)
+&#9658; [Documentation](https://woocommerce.com/document/order-limit/)
 &#9658; [Report Bugs/Issues](https://xfinitysoft.com/contact-us/)
 
 == Installation ==
@@ -120,6 +120,8 @@ Upload Order Limit Lite for WooCommerce to the `/wp-content/plugins/` directory
 Activate the plugin through the \'Plugins\' menu in WordPress.
 
 == Changelog ==
+2.2.4 
+Update the pro version link
 2.2.3
 Fix notice issue cart and checkout block
 2.2.2

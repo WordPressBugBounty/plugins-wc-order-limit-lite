@@ -6,9 +6,9 @@
  * Author:              Xfinity Soft
  * Author URI:          http://www.xfinitysoft.com/
  *
- * Version:             2.2.3
+ * Version:             2.2.4
  * Requires at least:   4.4.0
- * Tested up to:        6.6.1
+ * Tested up to:        6.7.1
  *
  * Requires PHP:        7.4
  * Text Domain:         wc-order-limit-lite
