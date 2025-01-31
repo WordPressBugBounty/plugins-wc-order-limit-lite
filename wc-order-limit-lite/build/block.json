@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wc-order-limit/wc-order-limit",
+  "version": "5.3.6",
+  "title": "WC Order Limit",
+  "category": "widgets",
+  "icon": "lock",
+  "description": "Set Order limits i.e Minimum Order Limit for vendors, Minimum Order Limit for products, Minimum Order Limit for product categories, Minimum Order Limit for complete order.",
+  "supports": {
+    "html": false,
+    "inserter": false
+  },
+  "attributes": {},
+  "usesContext": [
+    "postId",
+    "postType"
+  ],
+  "textdomain": "wc-order-limit",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

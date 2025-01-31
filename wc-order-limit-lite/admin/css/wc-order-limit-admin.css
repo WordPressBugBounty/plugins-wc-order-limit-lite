@@ -1,0 +1,653 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+body {
+    background-color: #F1F1F1;
+}
+
+.wcol-rule-table {
+    display: none;
+}
+
+.woocommerce_page_wc-order-limit #wpfooter {
+    position: relative !important;
+}
+
+.notice,
+div.error,
+div.updated {
+    margin: 5px 2px 2px;
+}
+
+
+nav.wcol-nav {
+    width: 98%;
+    position: absolute;
+    border-bottom: 1px solid #ccc;
+}
+
+nav.wcol-nav a.nav-tab:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.wcol .wcol-inner {
+    padding-top: 50px;
+}
+
+th.wcol-object-type-th {
+    width: 30%;
+}
+
+.wcol .wcol-inner .wcol-rules-section table thead tr th {
+    font-weight: 500;
+}
+
+.wcol .wcol-inner .wcol-rules-section table tr td select {
+    width: auto;
+}
+
+.wcol .wcol-inner .wcol-rules-section table tr th.wcol-select-all {
+    padding: 0;
+    padding-bottom: 20px;
+    padding-top: 8px;
+    width: 36px;
+}
+
+.wcol .wcol-inner .wcol-rules-section table tr td.wcol-cb {
+    padding-left: 8px;
+}
+
+.wcol .wcol-inner .wcol-rules-section .select2-container {
+    margin-top: 2px !important;
+}
+
+.wcol .wcol-inner .wcol-rules-section .select2-container-multi ul.select2-choices {
+    min-height: 28px !important;
+    padding: 0 !important;
+}
+
+.wcol .wcol-inner .wcol-rules-section input[type=number] {
+    width: 70px;
+}
+
+.wcol-yearly-start-month {
+    display: inline !important;
+    vertical-align: top !important;
+}
+
+.wcol-yearly-start-day {
+    display: inline !important;
+    width: 45px !important;
+}
+
+.wcol-rule-options table {
+    width: 100%;
+}
+
+.wcol-rule-options th {
+    width: 50%;
+}
+
+.wcol-hidden {
+    display: none !important;
+}
+
+.wcol-select-cus-type {
+    display: none;
+}
+
+.wcol-disabled {
+    pointer-events: none !important;
+    background: lightgray !important;
+    color: grey !important;
+}
+
+.wcol .wcol-inner .wcol-rules-section .wcol-more-options .wcol-rule-options {
+    position: absolute;
+    /*background: #f9f9f9;*/
+    border: 1px solid #e5e5e5;
+    border-left: 0;
+    width: 25%;
+    left: 73.7%;
+    z-index: 1;
+}
+
+.wcol .wcol-inner .wcol-rules-section .wcol-more-options .wcol-options-open {
+    height: 51px;
+    width: 3px;
+    display: block;
+    position: absolute;
+    left: 73.6%;
+    z-index: 1;
+}
+
+.wcol-collapsed {
+    width: 75%;
+}
+
+.wcol .wcol-inner .wcol-rules-section .wcol-actions-btn {
+    margin-top: 20px;
+}
+
+.wcol .wcol-inner .wcol-rules-section .wcol-actions-btn input {
+    min-width: 120px;
+    float: right;
+    margin-left: 5px;
+}
+
+.wcol_spinner {
+    float: right;
+    margin: 0;
+    opacity: 1;
+    height: 30px;
+    display: none;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+.wcol_is_active {
+    display: inline-block;
+    visibility: visible;
+    opacity: 1
+}
+
+#wcol_tab .wcol-description {
+    padding: 0px 0 0 160px;
+    margin: -2px 0 9px 0;
+    font-weight: bold;
+}
+
+.wcol_vendor_table table th,
+.wcol_vendor_table table td {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.wcol .wcol-inner .wcol-rules-section .wcol-form-table td:first-child {
+    padding: 0;
+}
+
+.wcol .wcol-inner .wcol-rules-section .wcol-form-table td:first-child h3 {
+    margin: 0.5em 0;
+}
+
+.wcol .wcol-inner .wcol-rules-section .wcol-form-table th:first-child {
+    width: auto;
+    vertical-align: middle !important;
+    padding: 0 0 0 20px;
+}
+
+.wcol .wcol-inner .wcol-rules-section .wcol-form-table td textarea {
+    width: 90%;
+    padding: 5px 10px;
+}
+
+.wcol-help-tip {
+    float: right;
+    position: relative;
+    display: inline-block;
+}
+
+.wcol-help-tip::after {
+    font-family: Dashicons;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+    text-indent: 0px;
+    text-align: center;
+    content: "";
+    cursor: help;
+    margin: 0px;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+.wcol-help-tip .wcol-tip {
+    visibility: hidden;
+    font-size: 11px;
+    width: 180px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px 5px 5px 5px;
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    left: 50%;
+    margin-left: -95px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.wcol-help-tip .wcol-tip::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+}
+
+.wcol-help-tip:hover .wcol-tip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.wcol-more-options-header {
+    margin-top: -17px;
+    padding-top: 17px;
+    padding-left: 10px;
+}
+
+td.wcol-more-options-s {
+    display: none;
+}
+
+td.wcol-more-options-s {
+    padding: 8px 10px !important;
+}
+
+td.wcol-more-options-s table {
+    width: 93%;
+}
+
+td.wcol-more-options-s table td input,
+td.wcol-more-options-s table td select {
+    margin-left: 0 !important;
+}
+
+.wcol-rule-start-time,
+.wcol-rule-end-time {
+    width: 81%;
+}
+
+#wcol_tab .wc-metaboxes .wc-metabox-content {
+    background-color: #fdfdfd;
+    padding: 1em 2em;
+}
+
+#wcol_tab .wc-metaboxes .wc-metabox-content p.form-field {
+    margin: 0;
+}
+
+.wcol_accomulative_rule input:not(.wcol_edit_rule),
+.wcol_accomulative_rule select {
+    background: rgba(255, 255, 255, .5) !important;
+    border-color: rgba(222, 222, 222, .75) !important;
+    webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .04) !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .04) !important;
+    color: rgba(51, 51, 51, .5) !important;
+    pointer-events: none !important;
+}
+
+.wcol_single_cat_rules {
+    margin-bottom: 1em;
+}
+
+.wcol_cat_accordion {
+    color: #444;
+    cursor: pointer;
+    padding: .75em 0 .75em 0;
+    line-height: 1.4em;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    margin: 0
+}
+
+.wcol_cat_accordion:hover {
+    background-color: #eee;
+}
+
+.wcol_cat_panel {
+    padding: 10px 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
+
+.wcol_single_cat_rules .options_group {
+    border-bottom: 1px solid #eee;
+}
+
+.wcol_single_cat_rules .options_group p.form-field {
+    margin: 0;
+    padding: 6px 0;
+}
+
+.wcol_single_cat_rules .options_group label {
+    width: 40%;
+    display: inline-block;
+}
+
+.wcol_single_cat_rules .options_group input,
+.wcol_single_cat_rules .options_group select {
+    width: auto;
+}
+
+.wcol_single_cat_rules .options_group .select2-container {
+    width: 59% !important;
+}
+
+.wcol_single_cat_rule h3,
+#wcol_tab .wc-metabox h3 {
+    position: relative;
+}
+
+.wcol_single_cat_rule h3 .wcol-delete,
+#wcol_tab .wc-metabox h3 .wcol-delete,
+.wcol_single_cat_rule h3 .wcol-undo,
+#wcol_tab .wc-metabox h3 .wcol-undo {
+    float: right;
+    font-size: 12px;
+    color: red;
+    cursor: pointer;
+    display: none;
+    font-weight: 400;
+}
+
+.wcol_single_cat_rule h3:hover .wcol-delete,
+#wcol_tab .wc-metabox h3:hover .wcol-delete,
+.wcol_single_cat_rule h3:hover .wcol-undo,
+#wcol_tab .wc-metabox h3:hover .wcol-undo {
+    display: inline !important;
+}
+
+#wcol_tab .wc-metabox h3,
+.wcol_single_cat_rule h3 {
+    cursor: pointer;
+}
+
+.wcol-deleted-rule h3 {
+    text-decoration: line-through !important;
+}
+
+.wcol-deleted-rule .wcol_cat_panel,
+.wcol-deleted-rule .wc-metabox-content {
+    display: none !important;
+}
+
+
+.xs-wcol-spinner {
+    display: inline-block !important;
+    float: none;
+    opacity: 1;
+
+}
+
+.xs-wcol-alert-success {
+    background-color: #dff0d8;
+    border-color: #d0e9c6;
+    color: #3c763d;
+}
+
+.xs-wcol-alert {
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.wcol-data-save-notice {
+    display: none;
+}
+
+.xs-wcol-close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 0.5;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+}
+
+button.xs-wcol-close {
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+    -webkit-appearance: none;
+}
+
+.wcol-rule-min-limit {
+    width: 100px;
+    padding-right: 0px !important;
+}
+
+.error {
+    outline: 1px solid red;
+}
+
+.wcol-col-button {
+    width: 380px;
+    float: left;
+
+}
+
+.wcol-button-main {
+    display: inline-block;
+    width: 160px
+}
+
+.wcol-button-main p.submit {
+    margin: 0px;
+    padding-bottom: 0px;
+}
+
+#wcol_name,
+#wcol_email {
+    width: 335px;
+}
+
+.xs-send-email-notice {
+    display: none;
+}
+
+.xs-notice-dismiss {
+    display: none;
+}
+
+.wcol-send-mail {
+    font-size: 15px !important;
+    font-family: bold;
+    padding: 2px 15px !important;
+}
+
+.wcol-post {
+    margin: 15px 10px 15px 0;
+}
+
+/*wcol modal*/
+.wcol-rule-modal .modal-header,
+.wcol-rule-modal .modal-footer,
+.xs-wcol-modal .modal-header,
+.xs-wcol-modal .modal-footer {
+    border: none;
+}
+
+.wcol-rule-modal .modal-footer,
+.xs-wcol-modal .modal-footer {
+    padding: 1.2rem 1rem;
+}
+
+.wcol-rule-modal .modal-footer button,
+.xs-wcol-modal .modal-footer button {
+    min-width: 80px;
+}
+
+.wcol-rule-modal .modal-header i,
+.xs-wcol-modal .modal-header i {
+    color: orange;
+}
+
+.wcol-rule-modal .modal-dialog-centered,
+.xs-wcol-modal .modal-dialog-centered {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: calc(100% - (.5rem * 2));
+}
+
+.wcol-rule-modal .modal-content,
+.xs-wcol-modal .modal-content {
+    width: 100%;
+}
+
+.wcol_spinner {
+    float: right;
+    margin: 0;
+    opacity: 1;
+    height: 30px;
+    display: none;
+    background-position-x: center;
+    background-position-y: center;
+
+}
+
+.wcol-rule-spinner {
+    margin-left: 5px;
+    margin-top: 8px;
+}
+
+.wcol_is_active {
+    display: inline-block;
+    visibility: visible;
+    opacity: 1
+}
+
+.wcol-top-margin {
+    margin-top: 20px !important;
+}
+
+.wcol-mail-spinner {
+    margin-top: 38px;
+}
+
+html {
+    scroll-padding-top: 50px;
+}
+
+.xswcol-add-new-rule {
+    text-align: center !important;
+}
+
+#wcol-add-exclude-rule {
+    padding: 5px !important;
+    line-height: 0 !important;
+}
+
+#wcol-add-exclude-rule:hover {
+    background-color: #000000;
+}
+
+@media only screen and (min-width: 576px) {
+    .modal-dialog-centered {
+        min-height: calc(100% - (1.75rem * 2));
+    }
+}
+
+@media (min-width: 970px) and (max-width: 1319px) {
+    .wcol .wcol-inner .wcol-rules-section .wcol-actions-btn.wcol-collapsed input {
+        font-size: 12px;
+        min-width: 90px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 969px) {
+
+    .wcol .wcol-inner .wcol-rules-section .wcol-actions-btn.wcol-collapsed input {
+        font-size: 9px;
+        min-width: 80px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .wcol .wcol-inner .wcol-rules-section .wcol-actions-btn input {
+        font-size: 12px;
+        min-width: 90px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 782px) {
+
+    /*.wcol .wcol-inner .wcol-rules-section table thead{
+        display:none;
+    }*/
+    .wp-list-table .is-expanded td.check-column {
+        display: table-cell !important;
+        overflow: visible;
+    }
+
+    .wcol .wcol-inner .wcol-rules-section table td input,
+    .wcol .wcol-inner .wcol-rules-section table td select {
+        margin-left: 40%;
+    }
+
+    .wcol-show-more-options,
+    .wcol-hide-more-options,
+    .wcol-options-open {
+        display: none !important;
+    }
+
+    .wcol-rule-options {
+        display: block !important;
+        position: relative !important;
+        background: transparent !important;
+        border: 0 !important;
+        width: 100% !important;
+        left: 0 !important;
+    }
+
+    td.wcol-more-options-td {
+        padding-left: 0 !important;
+    }
+
+    .wcol-rule-options table td input {
+        margin-left: 0 !important;
+    }
+
+    .wcol-rule-options table {
+        width: 92%;
+    }
+
+    .wcol-advance-tab-section table td input,
+    .wcol-advance-tab-section table td select,
+    .wcol-guest-rules-tab-section table td input,
+    .wcol-guest-rules-tab-section table td select,
+    .wcol-order-total-section table td input,
+    .wcol-order-total-section table td select {
+        margin-left: 0 !important;
+    }
+
+    .wcol-advance-tab-section table td,
+    .wcol-advance-tab-section table td,
+    .wcol-guest-rules-tab-section table td,
+    .wcol-guest-rules-tab-section table td,
+    .wcol-order-total-section table td,
+    .wcol-order-total-section table td {
+        padding-left: 20px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 596px) {
+    .wcol .wcol-inner {
+        padding-top: 80px;
+    }
+}
