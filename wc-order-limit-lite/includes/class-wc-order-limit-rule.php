@@ -357,39 +357,12 @@ class WC_Order_Limit_Rule {
 					}
 
 					$message = $wcol_settings['product_limit_message_accomulative'];
-					switch ( $rule['rule-time-span'] ) {
-						case 'daily':
-							$time_span_text = esc_html__( 'Daily', 'order-limit-for-woocommerce' );
-							break;
-						case 'weekly':
-							$time_span_text = esc_html__( 'Weekly', 'order-limit-for-woocommerce' );
-							break;
-						case 'monthly':
-							$time_span_text = esc_html__( 'Monthly', 'order-limit-for-woocommerce' );
-							break;
-						case 'yearly':
-							$time_span_text = esc_html__( 'Yearly', 'order-limit-for-woocommerce' );
-							break;
-						case 'days':
-							$time_span_text = __( 'last ', 'order-limit-for-woocommerce' ) . $rule['days'] . __( ' days', 'order-limit-for-woocommerce' );
-							break;
-						case 'custom':
-							$time_span_text = esc_html__( 'from ', 'order-limit-for-woocommerce' ) . gmdate( 'd M Y h:i a', $rule['from'] ) . esc_html__( ' to ', 'order-limit-for-woocommerce' ) . gmdate( 'd M Y h:i a', $rule['to'] );
-							break;
-					}
-					$reset_time = gmdate( $date_format, $rule['to'] );
-					if ( 'days' === $rule['rule-time-span'] ) {
-						$reset_time = __( ' required days have passed', 'order-for-woocommerce' );
-					}
 					$message = str_replace(
 						array(
 							'{product-names}',
 							'{min-limit}',
 							'{max-limit}',
 							'{applied-on}',
-							'{time-span}',
-							'{limit-reset-day}',
-							'{remaining}',
 							'{endline}',
 						),
 						array(
@@ -397,9 +370,6 @@ class WC_Order_Limit_Rule {
 							$wcol_min_value,
 							$wcol_max_value,
 							$rule['applied_on'],
-							$time_span_text,
-							$reset_time,
-							$rule['remaining'],
 							'<br>',
 						),
 						$message
@@ -497,37 +467,12 @@ class WC_Order_Limit_Rule {
 							$message     = $wcol_settings['category_limit_message'];
 							$date_format = apply_filters( 'xswcol_date_format', 'd M Y h:i:s a' );
 						}
-						$names = array();
-						if ( isset( $rule['prule'] ) && ! empty( $rule['prule'] ) ) {
-							if ( 'categories' === $rule['prule_type'] ) {
-								$message = 'You must add this category product {parent-category-names} in cart to proceed';
-								$message = isset( $wcol_settings['parent_category_limit_message'] ) ? $wcol_settings['parent_category_limit_message'] : $message;
-								foreach ( $rule['prule'] as $id ) {
-									$cterm   = get_term( $id, 'product_cat' );
-									$names[] = $cterm->name;
-								}
-							} else {
-								$message = 'You must add this product {parent-product-names} in cart to proceed';
-								$message = isset( $wcol_settings['parent_product_limit_message'] ) ? $wcol_settings['parent_product_limit_message'] : $message;
-								foreach ( $rule['prule'] as $id ) {
-									$names[] = get_the_title( $id );
-								}
-							}
-						}
-						$reset_time = gmdate( $date_format, $rule['to'] );
-						if ( 'days' === $rule['rule-time-span'] ) {
-							$reset_time = __( ' required days have passed', 'order-for-woocommerce' );
-						}
 						$message = str_replace(
 							array(
 								'{category-name}',
 								'{min-limit}',
 								'{max-limit}',
 								'{applied-on}',
-								'{time-span}',
-								'{limit-reset-day}',
-								'{remaining}',
-								'{parent-category-names}',
 								'{endline}',
 							),
 							array(
@@ -535,10 +480,6 @@ class WC_Order_Limit_Rule {
 								$wcol_min_value,
 								$wcol_max_value,
 								$rule['applied_on'],
-								$time_span_text,
-								$reset_time,
-								$rule['remaining'],
-								implode( ',', $names ),
 								'<br>',
 							),
 							$message
@@ -581,39 +522,12 @@ class WC_Order_Limit_Rule {
 						$wcol_max_value = '<span style="font-size:30px; font-weight:bold;vertical-align: middle;">∞</span>';
 					}
 					$message = $wcol_settings['category_limit_message_accomulative'];
-					switch ( $rule['rule-time-span'] ) {
-						case 'daily':
-							$time_span_text = esc_html__( 'Daily', 'order-limit-for-woocommerce' );
-							break;
-						case 'weekly':
-							$time_span_text = esc_html__( 'Weekly', 'order-limit-for-woocommerce' );
-							break;
-						case 'monthly':
-							$time_span_text = esc_html__( 'Monthly', 'order-limit-for-woocommerce' );
-							break;
-						case 'yearly':
-							$time_span_text = esc_html__( 'Yearly', 'order-limit-for-woocommerce' );
-							break;
-						case 'days':
-							$time_span_text = __( 'last ', 'order-limit-for-woocommerce' ) . $rule['days'] . __( ' days', 'order-limit-for-woocommerce' );
-							break;
-						case 'custom':
-							$time_span_text = esc_html__( 'from ', 'order-limit-for-woocommerce' ) . gmdate( 'd M Y h:i a', $rule['from'] ) . esc_html__( ' to ', 'order-limit-for-woocommerce' ) . gmdate( 'd M Y h:i a', $rule['to'] );
-							break;
-					}
-					$reset_time = gmdate( $date_format, $rule['to'] );
-					if ( 'days' === $rule['rule-time-span'] ) {
-						$reset_time = __( ' required days have passed', 'order-for-woocommerce' );
-					}
 					$message = str_replace(
 						array(
 							'{category-names}',
 							'{min-limit}',
 							'{max-limit}',
 							'{applied-on}',
-							'{time-span}',
-							'{limit-reset-day}',
-							'{remaining}',
 							'{endline}',
 						),
 						array(
@@ -621,9 +535,6 @@ class WC_Order_Limit_Rule {
 							$wcol_min_value,
 							$wcol_max_value,
 							$rule['applied_on'],
-							$time_span_text,
-							$reset_time,
-							$rule['remaining'],
 							'<br>',
 						),
 						$message

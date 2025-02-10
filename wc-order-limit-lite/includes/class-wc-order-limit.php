@@ -184,10 +184,6 @@ class WC_Order_Limit {
 		$this->loader->add_action( 'product_cat_edit_form_fields', $plugin_admin, 'wcol_product_cat_fields', 10 );
 		$this->loader->add_action( 'created_term', $plugin_admin, 'save_wcol_product_cat_fields', 10, 3 );
 		$this->loader->add_action( 'edit_term', $plugin_admin, 'save_wcol_product_cat_fields', 10, 3 );
-
-		$this->loader->add_action( 'show_user_profile', $plugin_admin, 'wcol_vendor_fields', 10, 1 );
-		$this->loader->add_action( 'edit_user_profile', $plugin_admin, 'wcol_vendor_fields', 10, 1 );
-		$this->loader->add_action( 'profile_update', $plugin_admin, 'update_wcol_vendor_fields', 10, 1 );
 		$this->loader->add_action( 'wp_ajax_wcol_load_new_row', $plugin_admin, 'wcol_load_new_row' );
 		$this->loader->add_action( 'wp_ajax_nopriv_wcol_load_new_row', $plugin_admin, 'wcol_load_new_row' );
 
