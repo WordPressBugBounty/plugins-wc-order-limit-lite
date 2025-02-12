@@ -5,7 +5,7 @@ Donate link:  https://woocommerce.com/products/order-limit/
 Requires at least: 4.5
 Tested up to: 6.7.1
 Requires PHP: 6.2
-Stable tag: 3.0.1
+Stable tag: 3.0.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Set Order limits i.e Minimum Order Limit for products, Minimum Order Limit for product categories, Minimum Order Limit for complete order.
@@ -72,10 +72,6 @@ With customizable error messages, you can notify customers about the order limit
 = Buy the Premium Version here:  =
 [Woocommerce Order Limit](https://woocommerce.com/products/order-limit/)
 
-###Explore More WordPress Insights!
-
-Enhance your WordPress experience with expert tips, guides, and in-depth tutorials. Visit WPDisc.com for the latest WordPress-related articles!
-
 ###MAY BE YOU NEED
 
 [WP Post Hide](https://wordpress.org/plugins/wp-post-hide/): Control the visibility of post type items like pages, posts and custom post type. Hidden in a specific part. But another part still visible.
@@ -124,9 +120,10 @@ Upload Order Limit Lite for WooCommerce to the `/wp-content/plugins/` directory
 Activate the plugin through the \'Plugins\' menu in WordPress.
 
 == Changelog ==
+3.0.2
+Fix empty message issue and public.js not found
 3.0.1
 Fix checkout critical error
-
 3.0.0
 Major update
 Add single product page rule.

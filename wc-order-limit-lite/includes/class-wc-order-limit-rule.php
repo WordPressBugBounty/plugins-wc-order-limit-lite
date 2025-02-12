@@ -301,7 +301,10 @@ class WC_Order_Limit_Rule {
 						if ( 'on' !== $rule['enable-max-rule-limit'] ) {
 							$wcol_max_value = '<span style="font-size:30px; font-weight:bold;vertical-align: middle;">∞</span>';
 						}
-						$message = $wcol_settings['product_limit_message'];
+						$message = '{product-name} product minimum {applied-on} should be greater than {min-limit} and less than {max-limit}.';
+						if ( isset( $wcol_settings['product_limit_message'] ) && ! empty( $wcol_settings['product_limit_message'] ) ) {
+							$message = $wcol_settings['product_limit_message'];
+						}
 						$message = str_replace(
 							array(
 								'{product-name}',
@@ -355,8 +358,10 @@ class WC_Order_Limit_Rule {
 					if ( empty( $wcol_max_value ) || 'on' !== $rule['enable-max-rule-limit'] ) {
 						$wcol_max_value = '<span style="font-size:30px; font-weight:bold;vertical-align: middle;">∞</span>';
 					}
-
-					$message = $wcol_settings['product_limit_message_accomulative'];
+					$message = 'Following products accomulative {applied-on} should be greater than {min-limit} and less than {max-limit}.{product-names}.';
+					if ( isset( $wcol_settings['product_limit_message_accomulative'] ) && ! empty( $wcol_settings['product_limit_message_accomulative'] ) ) {
+						$message = $wcol_settings['product_limit_message_accomulative'];
+					}
 					$message = str_replace(
 						array(
 							'{product-names}',
@@ -415,57 +420,9 @@ class WC_Order_Limit_Rule {
 						if ( 'on' !== $rule['enable-max-rule-limit'] ) {
 							$wcol_max_value = '<span style="font-size:30px; font-weight:bold;vertical-align: middle;">∞</span>';
 						}
-						if ( '1' !== $rule['across-all-orders'] && 'minimum_limit' !== $rule['applied_for'] ) {
-							if ( '2' === $rule['across-all-orders'] ) {
-								$message = $wcol_settings['category_limit_message_across_all_orders'];
-							} else {
-								$message = $wcol_settings['category_limit_message_across_all_users_orders'];
-							}
-							switch ( $rule['rule-time-span'] ) {
-								case 'daily':
-									$time_span_text = esc_html__( 'Daily', 'order-limit-for-woocommerce' );
-									break;
-								case 'weekly':
-									$time_span_text = esc_html__( 'Weekly', 'order-limit-for-woocommerce' );
-									break;
-								case 'monthly':
-									$time_span_text = esc_html__( 'Monthly', 'order-limit-for-woocommerce' );
-									break;
-								case 'yearly':
-									$time_span_text = esc_html__( 'Yearly', 'order-limit-for-woocommerce' );
-									break;
-								case 'days':
-									$time_span_text = __( 'last ', 'order-limit-for-woocommerce' ) . $rule['days'] . __( ' days', 'order-limit-for-woocommerce' );
-									break;
-								case 'custom':
-									$time_span_text = esc_html__( 'from ', 'order-limit-for-woocommerce' ) . gmdate( 'd M Y h:i a', $rule['from'] ) . esc_html__( ' to ', 'order-limit-for-woocommerce' ) . gmdate( 'd M Y h:i a', $rule['to'] );
-									break;
-							}
-						} else {
-							switch ( $rule['rule-time-span'] ) {
-								case 'daily':
-									$time_span_text = esc_html__( 'Daily', 'order-limit-for-woocommerce' );
-									break;
-								case 'weekly':
-									$time_span_text = esc_html__( 'Weekly', 'order-limit-for-woocommerce' );
-									break;
-								case 'monthly':
-									$time_span_text = esc_html__( 'Monthly', 'order-limit-for-woocommerce' );
-									break;
-								case 'yearly':
-									$time_span_text = esc_html__( 'Yearly', 'order-limit-for-woocommerce' );
-									break;
-								case 'days':
-									$time_span_text = __( 'last ', 'order-limit-for-woocommerce' ) . $rule['days'] . __( ' days', 'order-limit-for-woocommerce' );
-									break;
-								case 'custom':
-									$rule_start_time = gmdate( 'd M Y h:i a', strtotime( $rule['rule-start-time'] ) );
-									$rule_end_time   = gmdate( 'd M Y h:i a', strtotime( $rule['rule-end-time'] ) );
-									$time_span_text  = esc_html__( 'from ', 'order-limit-for-woocommerce' ) . gmdate( 'd M Y h:i a', strtotime( $rule['rule-start-time'] ) ) . esc_html__( ' to ', 'order-limit-for-woocommerce' ) . gmdate( 'd M Y h:i a', strtotime( $rule['rule-end-time'] ) );
-									break;
-							}
-							$message     = $wcol_settings['category_limit_message'];
-							$date_format = apply_filters( 'xswcol_date_format', 'd M Y h:i:s a' );
+						$message = '{category-name} category item minimum {applied-on} should be greater than {min-limit} and less than {max-limit}.';
+						if ( isset( $wcol_settings['category_limit_message'] ) && ! empty( $wcol_settings['category_limit_message'] ) ) {
+							$message = $wcol_settings['category_limit_message'];
 						}
 						$message = str_replace(
 							array(
@@ -521,7 +478,10 @@ class WC_Order_Limit_Rule {
 					if ( empty( $wcol_max_value ) || 'on' !== $rule['enable-max-rule-limit'] ) {
 						$wcol_max_value = '<span style="font-size:30px; font-weight:bold;vertical-align: middle;">∞</span>';
 					}
-					$message = $wcol_settings['category_limit_message_accomulative'];
+					$message = 'Following Categories products accomulative {applied-on} should be greater than {min-limit} and less than {max-limit}.{category-names}.';
+					if ( isset( $wcol_settings['category_limit_message_accomulative'] ) && ! empty( $wcol_settings['category_limit_message_accomulative'] ) ) {
+						$message = $wcol_settings['category_limit_message_accomulative'];
+					}
 					$message = str_replace(
 						array(
 							'{category-names}',

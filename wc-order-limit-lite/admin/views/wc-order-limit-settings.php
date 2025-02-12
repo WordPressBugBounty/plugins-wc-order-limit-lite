@@ -206,13 +206,13 @@
 		<tr valign="top">
 			<th scope="row" class="titledesc">
 				<label for="wcol-product-limit-accomulative">
-					<?php esc_html_e( 'Message for Product limit For Accomulative Rules(Pro)', 'order-limit-for-woocommerce' ); ?>
+					<?php esc_html_e( 'Message for Product limit For Accomulative Rules', 'order-limit-for-woocommerce' ); ?>
 					<span class="woocommerce-help-tip" data-tip="<?php esc_html_e( 'This message will be shown on cart page if customer do not fulfill rule for Acomulative Products.', 'order-limit-for-woocommerce' ); ?> "></span>
 				</label>
 			</th>
 			<td class="wcol-forminp wcol-forminp-textarea">
 				<div>
-					<textarea name="product_limit_message_accomulative" disabled id="wcol-product-limit-message-accomulative" rows="3"><?php echo esc_html( $wcol_settings['product_limit_message_accomulative'] ); ?></textarea>
+					<textarea name="product_limit_message_accomulative" id="wcol-product-limit-message-accomulative" rows="3"><?php echo esc_html( $wcol_settings['product_limit_message_accomulative'] ); ?></textarea>
 					<span style="display: inline-block; padding: 0 50px 0 5px; font-style: italic; font-size: 11px; ">
 						<?php esc_html_e( 'Use {product-names} for Product Names seperated by comma, {max-limit} for Maximum Limit {min-limit} for Minimum Limit, {applied-on} for quantity/amount,  , {time-span} for rule time span, {limit-reset-day} for rule rest date, {endline} for line end, {remaining} for Remain quantity/amount.', 'order-limit-for-woocommerce' ); ?>
 					</span>
@@ -351,13 +351,13 @@
 		<tr valign="top" class="titledesc">
 			<th scope="row">
 				<label for="wcol-category-limit-message-accomulative">
-					<?php esc_html_e( 'Message for Category limit for Accomulative Rules(Pro)', 'order-limit-for-woocommerce' ); ?>
+					<?php esc_html_e( 'Message for Category limit for Accomulative Rules', 'order-limit-for-woocommerce' ); ?>
 					<span class="woocommerce-help-tip" data-tip="<?php esc_html_e( 'This message will be shown on cart page if customer do not fulfill an accomulative rule for product categories,{endline} for line end, {remain-items} for remaining items.', 'order-limit-for-woocommerce' ); ?>"></span>
 				</label>
 			</th>
 			<td class="wcol-forminp wcol-forminp-textarea">
 				<div>
-					<textarea name="category_limit_message_accomulative" disabled id="wcol-category-limit-message-accomulative" rows="3"><?php echo esc_html( $wcol_settings['category_limit_message_accomulative'] ); ?></textarea>
+					<textarea name="category_limit_message_accomulative" id="wcol-category-limit-message-accomulative" rows="3"><?php echo esc_html( $wcol_settings['category_limit_message_accomulative'] ); ?></textarea>
 					<span style="display: inline-block; padding: 0 50px 0 5px; font-style: italic; font-size: 11px; ">
 						<?php esc_html_e( 'Use {category-names} for Category Names seperated by comma, {max-limit} for Maximum Limit, {min-limit} for Minimum Limit, {applied-on} for quantity/amount , {time-span} for rule time span, {limit-reset-day} for rule rest date,{endline} for line end, {remaining} for Remain quantity/amount.', 'order-limit-for-woocommerce' ); ?>
 					</span>
