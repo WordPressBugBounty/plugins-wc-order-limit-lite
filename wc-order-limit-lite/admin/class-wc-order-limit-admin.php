@@ -119,6 +119,13 @@ class WC_Order_Limit_Admin {
 		wp_enqueue_script( 'select2-js', plugin_dir_url( __FILE__ ) . 'js/select2.full.min.js', array(), time(), false );
 		wp_enqueue_script( 'jquery-rain-date-time-js', plugin_dir_url( __FILE__ ) . 'js/jquery-rain-date-time.js', array(), time(), false );
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wc-order-limit-admin.js', array( 'jquery' ), $this->version, false );
+		wp_localize_script(
+			$this->plugin_name,
+			'wcol',
+			array(
+				'nonce' => wp_create_nonce( 'wcol_rule' ),
+			)
+		);
 		$script_vars = $this->get_wcol_script_vars();
 		wp_localize_script( $this->plugin_name, 'wcol_script_vars', $script_vars );
 		if ( is_object( $post ) && 'wcol_rule' === $post->post_type ) {
@@ -446,17 +453,19 @@ class WC_Order_Limit_Admin {
 	 * @since    3.0.0
 	 */
 	public function wcol_get_product() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+		if ( ! isset( $_POST['wcol_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wcol_nonce'] ) ), 'wcol_rule' ) ) {
+			return;
+		}
 		global $wpdb;
 		$product_type = 'simple';
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if ( isset( $_GET['type'] ) && ! empty( $_GET['type'] ) ) {
-			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$product_type = sanitize_text_field( wp_unslash( $_GET['type'] ) );
 		}
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$serach = isset( $_GET['q'] ) ? '%' . sanitize_text_field( wp_unslash( $_GET['q'] ) ) . '%' : '';
 		$limit  = 10;
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$page   = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : 1;
 		$offset = $limit * ( $page - 1 );
 		// phpcs:ignore WordPress.DB.DirectDatabaseQuery
@@ -502,10 +511,14 @@ class WC_Order_Limit_Admin {
 	 * @since    3.0.0
 	 */
 	public function wcol_get_categories() {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$serach = isset( $_GET['q'] ) ? sanitize_text_field( wp_unslash( $_GET['q'] ) ) : '';
-		$limit  = 10;
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+		if ( ! isset( $_POST['wcol_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wcol_nonce'] ) ), 'wcol_rule' ) ) {
+			return;
+		}
+		$serach      = isset( $_GET['q'] ) ? sanitize_text_field( wp_unslash( $_GET['q'] ) ) : '';
+		$limit       = 10;
 		$page        = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : 1;
 		$offset      = $limit * ( $page - 1 );
 		$args        = array(
@@ -534,7 +547,6 @@ class WC_Order_Limit_Admin {
 		);
 		$terms       = get_terms( $args );
 		$product_cat = array();
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if ( ! isset( $_GET['page'] ) ) {
 			$product_cat[] = array(
 				'id'   => '-1',
@@ -593,14 +605,18 @@ class WC_Order_Limit_Admin {
 	 * @since    3.0.0
 	 */
 	public function wcol_get_users() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+		if ( ! isset( $_POST['wcol_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wcol_nonce'] ) ), 'wcol_rule' ) ) {
+			return;
+		}
 		global $wpdb;
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$serach = isset( $_GET['q'] ) ? '%' . sanitize_text_field( wp_unslash( $_GET['q'] ) ) . '%' : '';
 		$limit  = 10;
 		if ( is_multisite() ) {
 			$wpdb->prefix = $wpdb->get_blog_prefix( 1 );
 		}
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$page   = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : 1;
 		$offset = $limit * ( $page - 1 );
 		// phpcs:ignore WordPress.DB.DirectDatabaseQuery
@@ -784,46 +800,52 @@ class WC_Order_Limit_Admin {
 	 * @since    3.0.0
 	 */
 	public function wcol_load_new_row() {
-			ob_start();
-			$months_array = array(
-				'01' => __( 'Jan', 'order-limit-for-woocommerce' ),
-				'02' => __( 'Feb', 'order-limit-for-woocommerce' ),
-				'03' => __( 'Mar', 'order-limit-for-woocommerce' ),
-				'04' => __( 'Apr', 'order-limit-for-woocommerce' ),
-				'05' => __( 'May', 'order-limit-for-woocommerce' ),
-				'06' => __( 'Jun', 'order-limit-for-woocommerce' ),
-				'07' => __( 'Jul', 'order-limit-for-woocommerce' ),
-				'08' => __( 'Aug', 'order-limit-for-woocommerce' ),
-				'09' => __( 'Sep', 'order-limit-for-woocommerce' ),
-				'10' => __( 'Oct', 'order-limit-for-woocommerce' ),
-				'11' => __( 'Nov', 'order-limit-for-woocommerce' ),
-				'12' => __( 'Dec', 'order-limit-for-woocommerce' ),
-			);
-			$weeks_array  = array(
-				'monday'    => __( 'Monday', 'order-limit-for-woocommerce' ),
-				'tuesday'   => __( 'Tuesday', 'order-limit-for-woocommerce' ),
-				'wednesday' => __( 'Wednesday', 'order-limit-for-woocommerce' ),
-				'thursday'  => __( 'Thursday', 'order-limit-for-woocommerce' ),
-				'friday'    => __( 'Friday', 'order-limit-for-woocommerce' ),
-				'saturday'  => __( 'Saturday', 'order-limit-for-woocommerce' ),
-				'sunday'    => __( 'Sunday', 'order-limit-for-woocommerce' ),
-			);
-			//phpcs:ignore
-			if( isset( $_POST['rule_type'] ) && !empty( $_POST['rule_type'] ) ) {
-				//phpcs:ignore
-				switch ( $_POST['rule_type'] ) {
-					case 'product':
-						include plugin_dir_path( __FILE__ ) . 'views/template-single-product-rule-row.php';
-						break;
-					case 'category':
-						include plugin_dir_path( __FILE__ ) . 'views/template-single-product-cat-rule-row.php';
-						break;
-				}
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+		if ( ! isset( $_POST['wcol_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wcol_nonce'] ) ), 'wcol_rule' ) ) {
+			return;
+		}
+		ob_start();
+		$months_array = array(
+			'01' => __( 'Jan', 'order-limit-for-woocommerce' ),
+			'02' => __( 'Feb', 'order-limit-for-woocommerce' ),
+			'03' => __( 'Mar', 'order-limit-for-woocommerce' ),
+			'04' => __( 'Apr', 'order-limit-for-woocommerce' ),
+			'05' => __( 'May', 'order-limit-for-woocommerce' ),
+			'06' => __( 'Jun', 'order-limit-for-woocommerce' ),
+			'07' => __( 'Jul', 'order-limit-for-woocommerce' ),
+			'08' => __( 'Aug', 'order-limit-for-woocommerce' ),
+			'09' => __( 'Sep', 'order-limit-for-woocommerce' ),
+			'10' => __( 'Oct', 'order-limit-for-woocommerce' ),
+			'11' => __( 'Nov', 'order-limit-for-woocommerce' ),
+			'12' => __( 'Dec', 'order-limit-for-woocommerce' ),
+		);
+		$weeks_array  = array(
+			'monday'    => __( 'Monday', 'order-limit-for-woocommerce' ),
+			'tuesday'   => __( 'Tuesday', 'order-limit-for-woocommerce' ),
+			'wednesday' => __( 'Wednesday', 'order-limit-for-woocommerce' ),
+			'thursday'  => __( 'Thursday', 'order-limit-for-woocommerce' ),
+			'friday'    => __( 'Friday', 'order-limit-for-woocommerce' ),
+			'saturday'  => __( 'Saturday', 'order-limit-for-woocommerce' ),
+			'sunday'    => __( 'Sunday', 'order-limit-for-woocommerce' ),
+		);
+
+		if ( isset( $_POST['rule_type'] ) && ! empty( $_POST['rule_type'] ) ) {
+			$rule_type = sanitize_text_field( wp_unslash( $_POST['rule_type'] ) );
+			switch ( $rule_type ) {
+				case 'product':
+					include plugin_dir_path( __FILE__ ) . 'views/template-single-product-rule-row.php';
+					break;
+				case 'category':
+					include plugin_dir_path( __FILE__ ) . 'views/template-single-product-cat-rule-row.php';
+					break;
 			}
-			$new_row = ob_get_clean();
-			//phpcs:ignore
-			echo $new_row;
-			die();
+		}
+		$new_row = ob_get_clean();
+		//phpcs:ignore
+		echo $new_row;
+		die();
 	}
 	/**
 	 * Add product panel tab.

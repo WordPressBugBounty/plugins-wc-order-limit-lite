@@ -8,7 +8,7 @@
  *
  * Plugin Name: Order Limit For WooCommerce ( Free Version )
  * Description: Order Limit for WooCommerce allows you to set order limits based on products, categories, customers, time spans, order total, and payment methods during checkout.
- * Version: 3.0.2
+ * Version: 3.0.3
  * Author: Xfinity Soft
  * Author URI: http://xfinitysoft.com/
  * Text Domain: order-limit-for-woocommerce

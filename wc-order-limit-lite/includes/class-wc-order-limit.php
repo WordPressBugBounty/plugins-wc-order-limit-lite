@@ -185,7 +185,6 @@ class WC_Order_Limit {
 		$this->loader->add_action( 'created_term', $plugin_admin, 'save_wcol_product_cat_fields', 10, 3 );
 		$this->loader->add_action( 'edit_term', $plugin_admin, 'save_wcol_product_cat_fields', 10, 3 );
 		$this->loader->add_action( 'wp_ajax_wcol_load_new_row', $plugin_admin, 'wcol_load_new_row' );
-		$this->loader->add_action( 'wp_ajax_nopriv_wcol_load_new_row', $plugin_admin, 'wcol_load_new_row' );
 
 		// checck for order limit rules on cart page and checkout page.
 
