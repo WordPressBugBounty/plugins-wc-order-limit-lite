@@ -5,7 +5,7 @@ Donate link:  https://woocommerce.com/products/order-limit/
 Requires at least: 4.5
 Tested up to: 6.7.1
 Requires PHP: 6.2
-Stable tag: 3.0.3
+Stable tag: 3.0.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Set Order limits i.e Minimum Order Limit for products, Minimum Order Limit for product categories, Minimum Order Limit for complete order.
@@ -124,6 +124,8 @@ Upload Order Limit Lite for WooCommerce to the `/wp-content/plugins/` directory
 Activate the plugin through the \'Plugins\' menu in WordPress.
 
 == Changelog ==
+3.0.4
+Fix Activation issue of free and pro version
 3.0.3
 Fix Missing authorization get product mode private
 3.0.2
