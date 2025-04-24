@@ -456,7 +456,7 @@ class WC_Order_Limit_Admin {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
-		if ( ! isset( $_POST['wcol_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wcol_nonce'] ) ), 'wcol_rule' ) ) {
+		if ( ! isset( $_GET['wcol_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['wcol_nonce'] ) ), 'wcol_rule' ) ) {
 			return;
 		}
 		global $wpdb;
@@ -514,7 +514,7 @@ class WC_Order_Limit_Admin {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
-		if ( ! isset( $_POST['wcol_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wcol_nonce'] ) ), 'wcol_rule' ) ) {
+		if ( ! isset( $_GET['wcol_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['wcol_nonce'] ) ), 'wcol_rule' ) ) {
 			return;
 		}
 		$serach      = isset( $_GET['q'] ) ? sanitize_text_field( wp_unslash( $_GET['q'] ) ) : '';
@@ -608,7 +608,7 @@ class WC_Order_Limit_Admin {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
-		if ( ! isset( $_POST['wcol_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wcol_nonce'] ) ), 'wcol_rule' ) ) {
+		if ( ! isset( $_GET['wcol_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['wcol_nonce'] ) ), 'wcol_rule' ) ) {
 			return;
 		}
 		global $wpdb;
