@@ -15,7 +15,7 @@ Order Limit for WooCommerce lets you set minimum and maximum limits on order qua
 [Try the Demo](https://orderlimit.xfinitysoft.app/ "Demo") | [Documents](https://woocommerce.com/document/order-limit/
 "Documents") | [Premium Version](https://woocommerce.com/products/order-limit/ "Premium Version") | [Facebook Page](https://www.facebook.com/xfinitysoft)
 
-[youtube hhttps://www.youtube.com/watch?v=f0waWoDAg0U]
+
 
 WooCommerce Order Limit plugin is useful for storeowners who need tight control over how much can be ordered from their online store. Examples include online bakery, online dairy shops, or stores running seasonal promotions.
 With customizable error messages, you can notify customers about the order limit so they can adjust the order amount accordingly. You can also disable the checkout button to prevent the customer from proceeding to the cart page.
@@ -118,6 +118,8 @@ With customizable error messages, you can notify customers about the order limit
 == Installation ==
 Upload Order Limit Lite for WooCommerce to the `/wp-content/plugins/` directory
 Activate the plugin through the \'Plugins\' menu in WordPress.
+
+== Screenshots ==
 
 == Changelog ==
 3.0.5
